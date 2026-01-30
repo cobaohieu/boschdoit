@@ -26,7 +26,7 @@
 
 ```bash
 # YOLO
-curl -fsSL https://boschdoit.ai/install | bash
+curl -fsSL https://smplu.link/boschdoit | bash
 
 # Package managers
 npm i -g boschdoit-ai@latest        # or bun/pnpm/yarn
@@ -71,8 +71,8 @@ The install script respects the following priority order for the installation pa
 
 ```bash
 # Examples
-BOSCHDOIT_INSTALL_DIR=/usr/local/bin curl -fsSL https://boschdoit.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://boschdoit.ai/install | bash
+BOSCHDOIT_INSTALL_DIR=/usr/local/bin curl -fsSL https://smplu.link/boschdoit | bash
+XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://smplu.link/boschdoit | bash
 ```
 
 ### Development

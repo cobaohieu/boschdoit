@@ -54,7 +54,7 @@ runs:
     - name: Install boschdoit
       if: steps.cache.outputs.cache-hit != 'true'
       shell: bash
-      run: curl -fsSL https://boschdoit.ai/install | bash
+      run: curl -fsSL https://smplu.link/boschdoit | bash
 
     - name: Add boschdoit to PATH
       shell: bash
