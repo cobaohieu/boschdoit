@@ -94,6 +94,8 @@ bun dev
 
 # Optional: Add alias
 alias boschdoit="bun dev"
+echo 'alias boschdoit="cd /path/to/boschdoit && bun dev"' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 For more details, see [CONTRIBUTING.md](CONTRIBUTING.md).
