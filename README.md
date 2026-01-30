@@ -82,8 +82,11 @@ To develop BoschDoIt, you need [Bun](https://bun.sh) (v1.3+).
 ```bash
 # Install Bun
 brew install bun
+for Ubuntu
+curl -fsSL https://bun.com/install | bash
 
 # Install dependencies
+source ~/.bashrc 
 bun install
 
 # Run dev server
