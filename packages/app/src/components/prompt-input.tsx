@@ -1,4 +1,4 @@
-import { useFilteredList } from "@opencode-ai/ui/hooks"
+import { useFilteredList } from "@boschdoit-ai/ui/hooks"
 import {
   createEffect,
   on,
@@ -31,17 +31,17 @@ import { useSDK } from "@/context/sdk"
 import { useNavigate, useParams } from "@solidjs/router"
 import { useSync } from "@/context/sync"
 import { useComments } from "@/context/comments"
-import { FileIcon } from "@opencode-ai/ui/file-icon"
-import { Button } from "@opencode-ai/ui/button"
-import { Icon } from "@opencode-ai/ui/icon"
-import { ProviderIcon } from "@opencode-ai/ui/provider-icon"
-import type { IconName } from "@opencode-ai/ui/icons/provider"
-import { Tooltip, TooltipKeybind } from "@opencode-ai/ui/tooltip"
-import { IconButton } from "@opencode-ai/ui/icon-button"
-import { Select } from "@opencode-ai/ui/select"
-import { getDirectory, getFilename, getFilenameTruncated } from "@opencode-ai/util/path"
-import { useDialog } from "@opencode-ai/ui/context/dialog"
-import { ImagePreview } from "@opencode-ai/ui/image-preview"
+import { FileIcon } from "@boschdoit-ai/ui/file-icon"
+import { Button } from "@boschdoit-ai/ui/button"
+import { Icon } from "@boschdoit-ai/ui/icon"
+import { ProviderIcon } from "@boschdoit-ai/ui/provider-icon"
+import type { IconName } from "@boschdoit-ai/ui/icons/provider"
+import { Tooltip, TooltipKeybind } from "@boschdoit-ai/ui/tooltip"
+import { IconButton } from "@boschdoit-ai/ui/icon-button"
+import { Select } from "@boschdoit-ai/ui/select"
+import { getDirectory, getFilename, getFilenameTruncated } from "@boschdoit-ai/util/path"
+import { useDialog } from "@boschdoit-ai/ui/context/dialog"
+import { ImagePreview } from "@boschdoit-ai/ui/image-preview"
 import { ModelSelectorPopover } from "@/components/dialog-select-model"
 import { DialogSelectModelUnpaid } from "@/components/dialog-select-model-unpaid"
 import { useProviders } from "@/hooks/use-providers"
@@ -54,10 +54,10 @@ import { usePermission } from "@/context/permission"
 import { useLanguage } from "@/context/language"
 import { useGlobalSync } from "@/context/global-sync"
 import { usePlatform } from "@/context/platform"
-import { createOpencodeClient, type Message, type Part } from "@opencode-ai/sdk/v2/client"
-import { Binary } from "@opencode-ai/util/binary"
-import { showToast } from "@opencode-ai/ui/toast"
-import { base64Encode } from "@opencode-ai/util/encode"
+import { createBoschdoitClient, type Message, type Part } from "@boschdoit-ai/sdk/v2/client"
+import { Binary } from "@boschdoit-ai/util/binary"
+import { showToast } from "@boschdoit-ai/ui/toast"
+import { base64Encode } from "@boschdoit-ai/util/encode"
 
 const ACCEPTED_IMAGE_TYPES = ["image/png", "image/jpeg", "image/gif", "image/webp"]
 const ACCEPTED_FILE_TYPES = [...ACCEPTED_IMAGE_TYPES, "application/pdf"]
@@ -1194,7 +1194,7 @@ export const PromptInput: Component<PromptInputProps> = (props) => {
       }
 
       if (sessionDirectory !== projectDirectory) {
-        client = createOpencodeClient({
+        client = createBoschdoitClient({
           baseUrl: sdk.url,
           fetch: platform.fetch,
           directory: sessionDirectory,

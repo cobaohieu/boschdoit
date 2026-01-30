@@ -44,7 +44,7 @@ async function waitForHealth(url: string) {
 
 const appDir = process.cwd()
 const repoDir = path.resolve(appDir, "../..")
-const opencodeDir = path.join(repoDir, "packages", "opencode")
+const boschdoitDir = path.join(repoDir, "packages", "boschdoit")
 
 const extraArgs = (() => {
   const args = process.argv.slice(2)
@@ -54,37 +54,37 @@ const extraArgs = (() => {
 
 const [serverPort, webPort] = await Promise.all([freePort(), freePort()])
 
-const sandbox = await fs.mkdtemp(path.join(os.tmpdir(), "opencode-e2e-"))
+const sandbox = await fs.mkdtemp(path.join(os.tmpdir(), "boschdoit-e2e-"))
 
 const serverEnv = {
   ...process.env,
-  OPENCODE_DISABLE_SHARE: "true",
-  OPENCODE_DISABLE_LSP_DOWNLOAD: "true",
-  OPENCODE_DISABLE_DEFAULT_PLUGINS: "true",
-  OPENCODE_EXPERIMENTAL_DISABLE_FILEWATCHER: "true",
-  OPENCODE_TEST_HOME: path.join(sandbox, "home"),
+  BOSCHDOIT_DISABLE_SHARE: "true",
+  BOSCHDOIT_DISABLE_LSP_DOWNLOAD: "true",
+  BOSCHDOIT_DISABLE_DEFAULT_PLUGINS: "true",
+  BOSCHDOIT_EXPERIMENTAL_DISABLE_FILEWATCHER: "true",
+  BOSCHDOIT_TEST_HOME: path.join(sandbox, "home"),
   XDG_DATA_HOME: path.join(sandbox, "share"),
   XDG_CACHE_HOME: path.join(sandbox, "cache"),
   XDG_CONFIG_HOME: path.join(sandbox, "config"),
   XDG_STATE_HOME: path.join(sandbox, "state"),
-  OPENCODE_E2E_PROJECT_DIR: repoDir,
-  OPENCODE_E2E_SESSION_TITLE: "E2E Session",
-  OPENCODE_E2E_MESSAGE: "Seeded for UI e2e",
-  OPENCODE_E2E_MODEL: "opencode/gpt-5-nano",
-  OPENCODE_CLIENT: "app",
+  BOSCHDOIT_E2E_PROJECT_DIR: repoDir,
+  BOSCHDOIT_E2E_SESSION_TITLE: "E2E Session",
+  BOSCHDOIT_E2E_MESSAGE: "Seeded for UI e2e",
+  BOSCHDOIT_E2E_MODEL: "boschdoit/gpt-5-nano",
+  BOSCHDOIT_CLIENT: "app",
 } satisfies Record<string, string>
 
 const runnerEnv = {
   ...serverEnv,
   PLAYWRIGHT_SERVER_HOST: "127.0.0.1",
   PLAYWRIGHT_SERVER_PORT: String(serverPort),
-  VITE_OPENCODE_SERVER_HOST: "127.0.0.1",
-  VITE_OPENCODE_SERVER_PORT: String(serverPort),
+  VITE_BOSCHDOIT_SERVER_HOST: "127.0.0.1",
+  VITE_BOSCHDOIT_SERVER_PORT: String(serverPort),
   PLAYWRIGHT_PORT: String(webPort),
 } satisfies Record<string, string>
 
 const seed = Bun.spawn(["bun", "script/seed-e2e.ts"], {
-  cwd: opencodeDir,
+  cwd: boschdoitDir,
   env: serverEnv,
   stdout: "inherit",
   stderr: "inherit",
@@ -97,20 +97,20 @@ if (seedExit !== 0) {
 
 Object.assign(process.env, serverEnv)
 process.env.AGENT = "1"
-process.env.OPENCODE = "1"
+process.env.BOSCHDOIT = "1"
 
-const log = await import("../../opencode/src/util/log")
-const install = await import("../../opencode/src/installation")
+const log = await import("../../boschdoit/src/util/log")
+const install = await import("../../boschdoit/src/installation")
 await log.Log.init({
   print: true,
   dev: install.Installation.isLocal(),
   level: "WARN",
 })
 
-const servermod = await import("../../opencode/src/server/server")
-const inst = await import("../../opencode/src/project/instance")
+const servermod = await import("../../boschdoit/src/server/server")
+const inst = await import("../../boschdoit/src/project/instance")
 const server = servermod.Server.listen({ port: serverPort, hostname: "127.0.0.1" })
-console.log(`opencode server listening on http://127.0.0.1:${serverPort}`)
+console.log(`boschdoit server listening on http://127.0.0.1:${serverPort}`)
 
 const result = await (async () => {
   try {

@@ -3056,7 +3056,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "opencode-desktop"
+name = "boschdoit-desktop"
 version = "0.0.0"
 dependencies = [
  "comrak",

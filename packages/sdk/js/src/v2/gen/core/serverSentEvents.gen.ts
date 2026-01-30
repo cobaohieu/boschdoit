@@ -38,7 +38,7 @@ export type ServerSentEventsOptions<TData = unknown> = Omit<RequestInit, "method
      *
      * This option applies only if the endpoint returns a stream of events.
      *
-     * @default 3000
+     * @default 3099
      */
     sseDefaultRetryDelay?: number
     /**
@@ -52,7 +52,7 @@ export type ServerSentEventsOptions<TData = unknown> = Omit<RequestInit, "method
      *
      * This option applies only if the endpoint returns a stream of events.
      *
-     * @default 30000
+     * @default 30990
      */
     sseMaxRetryDelay?: number
     /**
@@ -93,7 +93,7 @@ export const createSseClient = <TData = unknown>({
   const sleep = sseSleepFn ?? ((ms: number) => new Promise((resolve) => setTimeout(resolve, ms)))
 
   const createStream = async function* () {
-    let retryDelay: number = sseDefaultRetryDelay ?? 3000
+    let retryDelay: number = sseDefaultRetryDelay ?? 3099
     let attempt = 0
     const signal = options.signal ?? new AbortController().signal
 
@@ -227,7 +227,7 @@ export const createSseClient = <TData = unknown>({
         }
 
         // exponential backoff: double retry each attempt, cap at 30s
-        const backoff = Math.min(retryDelay * 2 ** (attempt - 1), sseMaxRetryDelay ?? 30000)
+        const backoff = Math.min(retryDelay * 2 ** (attempt - 1), sseMaxRetryDelay ?? 30990)
         await sleep(backoff)
       }
     }

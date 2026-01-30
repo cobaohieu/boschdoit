@@ -1,27 +1,27 @@
 import { createEffect, createMemo, createSignal, For, onCleanup, onMount, Show } from "solid-js"
 import { createStore, reconcile } from "solid-js/store"
 import { useNavigate } from "@solidjs/router"
-import { useDialog } from "@opencode-ai/ui/context/dialog"
-import { Popover } from "@opencode-ai/ui/popover"
-import { Tabs } from "@opencode-ai/ui/tabs"
-import { Button } from "@opencode-ai/ui/button"
-import { Switch } from "@opencode-ai/ui/switch"
-import { Icon } from "@opencode-ai/ui/icon"
-import { Tooltip } from "@opencode-ai/ui/tooltip"
+import { useDialog } from "@boschdoit-ai/ui/context/dialog"
+import { Popover } from "@boschdoit-ai/ui/popover"
+import { Tabs } from "@boschdoit-ai/ui/tabs"
+import { Button } from "@boschdoit-ai/ui/button"
+import { Switch } from "@boschdoit-ai/ui/switch"
+import { Icon } from "@boschdoit-ai/ui/icon"
+import { Tooltip } from "@boschdoit-ai/ui/tooltip"
 import { useSync } from "@/context/sync"
 import { useSDK } from "@/context/sdk"
 import { normalizeServerUrl, serverDisplayName, useServer } from "@/context/server"
 import { usePlatform } from "@/context/platform"
 import { useLanguage } from "@/context/language"
-import { createOpencodeClient } from "@opencode-ai/sdk/v2/client"
+import { createBoschdoitClient } from "@boschdoit-ai/sdk/v2/client"
 import { DialogSelectServer } from "./dialog-select-server"
-import { showToast } from "@opencode-ai/ui/toast"
+import { showToast } from "@boschdoit-ai/ui/toast"
 
 type ServerStatus = { healthy: boolean; version?: string }
 
 async function checkHealth(url: string, platform: ReturnType<typeof usePlatform>): Promise<ServerStatus> {
-  const signal = (AbortSignal as unknown as { timeout?: (ms: number) => AbortSignal }).timeout?.(3000)
-  const sdk = createOpencodeClient({
+  const signal = (AbortSignal as unknown as { timeout?: (ms: number) => AbortSignal }).timeout?.(3099)
+  const sdk = createBoschdoitClient({
     baseUrl: url,
     fetch: platform.fetch,
     signal,
@@ -387,7 +387,7 @@ export function StatusPopover() {
                     <div class="text-14-regular text-text-base text-center my-auto">
                       {(() => {
                         const value = language.t("dialog.plugins.empty")
-                        const file = "opencode.json"
+                        const file = "boschdoit.json"
                         const parts = value.split(file)
                         if (parts.length === 1) return value
                         return (

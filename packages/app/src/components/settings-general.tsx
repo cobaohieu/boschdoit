@@ -1,10 +1,10 @@
 import { Component, createMemo, type JSX } from "solid-js"
 import { createStore } from "solid-js/store"
-import { Button } from "@opencode-ai/ui/button"
-import { Select } from "@opencode-ai/ui/select"
-import { Switch } from "@opencode-ai/ui/switch"
-import { useTheme, type ColorScheme } from "@opencode-ai/ui/theme"
-import { showToast } from "@opencode-ai/ui/toast"
+import { Button } from "@boschdoit-ai/ui/button"
+import { Select } from "@boschdoit-ai/ui/select"
+import { Switch } from "@boschdoit-ai/ui/switch"
+import { useTheme, type ColorScheme } from "@boschdoit-ai/ui/theme"
+import { showToast } from "@boschdoit-ai/ui/toast"
 import { useLanguage } from "@/context/language"
 import { usePlatform } from "@/context/platform"
 import { useSettings, monoFontFamily } from "@/context/settings"
@@ -185,7 +185,7 @@ export const SettingsGeneral: Component = () => {
               description={
                 <>
                   {language.t("settings.general.row.theme.description")}{" "}
-                  <Link href="https://opencode.ai/docs/themes/">{language.t("common.learnMore")}</Link>
+                  <Link href="https://boschdoit.ai/docs/themes/">{language.t("common.learnMore")}</Link>
                 </>
               }
             >

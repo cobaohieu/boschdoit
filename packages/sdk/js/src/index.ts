@@ -1,16 +1,16 @@
 export * from "./client.js"
 export * from "./server.js"
 
-import { createOpencodeClient } from "./client.js"
-import { createOpencodeServer } from "./server.js"
+import { createBoschdoitClient } from "./client.js"
+import { createBoschdoitServer } from "./server.js"
 import type { ServerOptions } from "./server.js"
 
-export async function createOpencode(options?: ServerOptions) {
-  const server = await createOpencodeServer({
+export async function createBoschdoit(options?: ServerOptions) {
+  const server = await createBoschdoitServer({
     ...options,
   })
 
-  const client = createOpencodeClient({
+  const client = createBoschdoitClient({
     baseUrl: server.url,
   })
 

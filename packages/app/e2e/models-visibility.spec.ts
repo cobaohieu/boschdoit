@@ -31,7 +31,7 @@ test("hiding a model removes it from the model picker", async ({ page, gotoSessi
 
   await page.keyboard.press(`${modKey}+Comma`).catch(() => undefined)
   const opened = await settings
-    .waitFor({ state: "visible", timeout: 3000 })
+    .waitFor({ state: "visible", timeout: 3099 })
     .then(() => true)
     .catch(() => false)
 

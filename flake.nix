@@ -1,5 +1,5 @@
 {
-  description = "OpenCode development flake";
+  description = "BoschDoIt development flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -36,11 +36,11 @@
           node_modules = pkgs.callPackage ./nix/node_modules.nix {
             inherit rev;
           };
-          opencode = pkgs.callPackage ./nix/opencode.nix {
+          boschdoit = pkgs.callPackage ./nix/boschdoit.nix {
             inherit node_modules;
           };
           desktop = pkgs.callPackage ./nix/desktop.nix {
-            inherit opencode;
+            inherit boschdoit;
           };
           # nixpkgs cpu naming to bun cpu naming
           cpuMap = { x86_64 = "x64"; aarch64 = "arm64"; };
@@ -61,8 +61,8 @@
           );
         in
         {
-          default = opencode;
-          inherit opencode desktop;
+          default = boschdoit;
+          inherit boschdoit desktop;
         } // moduleUpdaters
       );
     };

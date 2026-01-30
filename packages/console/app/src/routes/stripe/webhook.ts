@@ -1,13 +1,13 @@
-import { Billing } from "@opencode-ai/console-core/billing.js"
+import { Billing } from "@boschdoit-ai/console-core/billing.js"
 import type { APIEvent } from "@solidjs/start/server"
-import { and, Database, eq, isNull, sql } from "@opencode-ai/console-core/drizzle/index.js"
-import { BillingTable, PaymentTable, SubscriptionTable } from "@opencode-ai/console-core/schema/billing.sql.js"
-import { Identifier } from "@opencode-ai/console-core/identifier.js"
-import { centsToMicroCents } from "@opencode-ai/console-core/util/price.js"
-import { Actor } from "@opencode-ai/console-core/actor.js"
-import { Resource } from "@opencode-ai/console-resource"
-import { UserTable } from "@opencode-ai/console-core/schema/user.sql.js"
-import { AuthTable } from "@opencode-ai/console-core/schema/auth.sql.js"
+import { and, Database, eq, isNull, sql } from "@boschdoit-ai/console-core/drizzle/index.js"
+import { BillingTable, PaymentTable, SubscriptionTable } from "@boschdoit-ai/console-core/schema/billing.sql.js"
+import { Identifier } from "@boschdoit-ai/console-core/identifier.js"
+import { centsToMicroCents } from "@boschdoit-ai/console-core/util/price.js"
+import { Actor } from "@boschdoit-ai/console-core/actor.js"
+import { Resource } from "@boschdoit-ai/console-resource"
+import { UserTable } from "@boschdoit-ai/console-core/schema/user.sql.js"
+import { AuthTable } from "@boschdoit-ai/console-core/schema/auth.sql.js"
 
 export async function POST(input: APIEvent) {
   const body = await Billing.stripe().webhooks.constructEventAsync(

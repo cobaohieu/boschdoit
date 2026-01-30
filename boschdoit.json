@@ -1,0 +1,29 @@
+{
+  "$schema": "https://boschdoit.ai/config.json",
+  "provider": {
+    "custom-chat": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Custom Chat URL",
+      "options": {
+        "baseURL": "https://your-custom-chat-url.com/v1"
+      },
+      "models": {
+        "custom-model": {
+          "name": "Custom Chat Model"
+        }
+      }
+    },
+    "local-sdk": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local SDK API",
+      "options": {
+        "baseURL": "http://localhost:1234/v1"
+      },
+      "models": {
+        "local-model": {
+          "name": "Local SDK Model"
+        }
+      }
+    }
+  }
+}

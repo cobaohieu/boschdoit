@@ -8,16 +8,16 @@ import { useLanguage } from "@/context/language"
 import { usePlatform } from "@/context/platform"
 import { useSync } from "@/context/sync"
 import { useGlobalSDK } from "@/context/global-sdk"
-import { getFilename } from "@opencode-ai/util/path"
+import { getFilename } from "@boschdoit-ai/util/path"
 import { decode64 } from "@/utils/base64"
 
-import { Icon } from "@opencode-ai/ui/icon"
-import { IconButton } from "@opencode-ai/ui/icon-button"
-import { Button } from "@opencode-ai/ui/button"
-import { Tooltip, TooltipKeybind } from "@opencode-ai/ui/tooltip"
-import { Popover } from "@opencode-ai/ui/popover"
-import { TextField } from "@opencode-ai/ui/text-field"
-import { Keybind } from "@opencode-ai/ui/keybind"
+import { Icon } from "@boschdoit-ai/ui/icon"
+import { IconButton } from "@boschdoit-ai/ui/icon-button"
+import { Button } from "@boschdoit-ai/ui/button"
+import { Tooltip, TooltipKeybind } from "@boschdoit-ai/ui/tooltip"
+import { Popover } from "@boschdoit-ai/ui/popover"
+import { TextField } from "@boschdoit-ai/ui/text-field"
+import { Keybind } from "@boschdoit-ai/ui/keybind"
 import { StatusPopover } from "../status-popover"
 
 export function SessionHeader() {
@@ -120,8 +120,8 @@ export function SessionHeader() {
     platform.openLink(url)
   }
 
-  const centerMount = createMemo(() => document.getElementById("opencode-titlebar-center"))
-  const rightMount = createMemo(() => document.getElementById("opencode-titlebar-right"))
+  const centerMount = createMemo(() => document.getElementById("boschdoit-titlebar-center"))
+  const rightMount = createMemo(() => document.getElementById("boschdoit-titlebar-right"))
 
   return (
     <>

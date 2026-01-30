@@ -86,5 +86,5 @@ fn main() {
         }
     }
 
-    opencode_lib::run()
+    boschdoit_lib::run()
 }

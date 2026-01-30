@@ -1,20 +1,20 @@
 import { createResource, createEffect, createMemo, onCleanup, Show, createSignal } from "solid-js"
 import { createStore, reconcile } from "solid-js/store"
-import { useDialog } from "@opencode-ai/ui/context/dialog"
-import { Dialog } from "@opencode-ai/ui/dialog"
-import { List } from "@opencode-ai/ui/list"
-import { Button } from "@opencode-ai/ui/button"
-import { IconButton } from "@opencode-ai/ui/icon-button"
-import { TextField } from "@opencode-ai/ui/text-field"
+import { useDialog } from "@boschdoit-ai/ui/context/dialog"
+import { Dialog } from "@boschdoit-ai/ui/dialog"
+import { List } from "@boschdoit-ai/ui/list"
+import { Button } from "@boschdoit-ai/ui/button"
+import { IconButton } from "@boschdoit-ai/ui/icon-button"
+import { TextField } from "@boschdoit-ai/ui/text-field"
 import { normalizeServerUrl, serverDisplayName, useServer } from "@/context/server"
 import { usePlatform } from "@/context/platform"
-import { createOpencodeClient } from "@opencode-ai/sdk/v2/client"
+import { createBoschdoitClient } from "@boschdoit-ai/sdk/v2/client"
 import { useNavigate } from "@solidjs/router"
 import { useLanguage } from "@/context/language"
-import { DropdownMenu } from "@opencode-ai/ui/dropdown-menu"
-import { Tooltip } from "@opencode-ai/ui/tooltip"
+import { DropdownMenu } from "@boschdoit-ai/ui/dropdown-menu"
+import { Tooltip } from "@boschdoit-ai/ui/tooltip"
 import { useGlobalSDK } from "@/context/global-sdk"
-import { showToast } from "@opencode-ai/ui/toast"
+import { showToast } from "@boschdoit-ai/ui/toast"
 
 type ServerStatus = { healthy: boolean; version?: string }
 
@@ -41,8 +41,8 @@ interface EditRowProps {
 }
 
 async function checkHealth(url: string, platform: ReturnType<typeof usePlatform>): Promise<ServerStatus> {
-  const signal = (AbortSignal as unknown as { timeout?: (ms: number) => AbortSignal }).timeout?.(3000)
-  const sdk = createOpencodeClient({
+  const signal = (AbortSignal as unknown as { timeout?: (ms: number) => AbortSignal }).timeout?.(3099)
+  const sdk = createBoschdoitClient({
     baseUrl: url,
     fetch: platform.fetch,
     signal,

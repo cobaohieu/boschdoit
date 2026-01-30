@@ -1,6 +1,6 @@
-# OpenCode Desktop
+# BoschDoIt Desktop
 
-Native OpenCode desktop app, built with Tauri v2.
+Native BoschDoIt desktop app, built with Tauri v2.
 
 ## Development
 

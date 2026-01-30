@@ -9,7 +9,7 @@ test("smoke providers settings opens provider selector", async ({ page, gotoSess
   await page.keyboard.press(`${modKey}+Comma`).catch(() => undefined)
 
   const opened = await dialog
-    .waitFor({ state: "visible", timeout: 3000 })
+    .waitFor({ state: "visible", timeout: 3099 })
     .then(() => true)
     .catch(() => false)
 

@@ -159,10 +159,6 @@ declare module "sst" {
       "type": "sst.sst.Secret"
       "value": string
     }
-    "ZEN_MODELS10": {
-      "type": "sst.sst.Secret"
-      "value": string
-    }
     "ZEN_MODELS2": {
       "type": "sst.sst.Secret"
       "value": string
@@ -188,10 +184,6 @@ declare module "sst" {
       "value": string
     }
     "ZEN_MODELS8": {
-      "type": "sst.sst.Secret"
-      "value": string
-    }
-    "ZEN_MODELS9": {
       "type": "sst.sst.Secret"
       "value": string
     }
